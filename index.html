@@ -1,23 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital Mimic - Real-Time Face to Emoji</title>
+    <meta charset="UTF-8" />
+    <title>Real-Time Emoji Creator</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="container">
+        <h1>Real-Time Emoji Creator</h1>
+        <p>See your unique emoji, generated from your expression!</p>
+        <div class="video-area">
+            <video id="webcam" autoplay playsinline></video>
+            <canvas id="canvas"></canvas>
+        </div>
+        <div class="emoji-output">
+            <svg id="custom-emoji" width="160" height="160"></svg>
+            <p id="expression-name">Waiting for face...</p>
+        </div>
 
-<h1>🤖 Digital Mimic: Face to Emoji</h1>
+        <!-- Customization Controls -->
+        <div class="customization">
+            <label>
+                Face Color:
+                <input type="color" id="faceColor" value="#FFE066">
+            </label>
+            <label>
+                Accessory:
+                <select id="accessory">
+                    <option value="">None</option>
+                    <option value="glasses">Glasses</option>
+                    <option value="blush">Blush</option>
+                    <option value="hat">Hat</option>
+                    <option value="stars">Stars</option>
+                </select>
+            </label>
+        </div>
 
-<div class="container">
-    <video id="webcam" autoplay muted></video>
-    <div id="emojiDisplay">😐</div>
-</div>
+        <button id="start-btn">Start Camera</button>
+        <button id="download-btn" style="display:none;">Download Emoji</button>
+    </div>
 
-<script src="https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh"></script>
-<script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils"></script>
-<script src="app.js"></script>
-
+    <!-- MediaPipe Face Mesh -->
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/face_mesh.js"></script>
+    <script src="script.js"></script>
 </body>
-</html
+</html>
